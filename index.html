@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Bézier Curve Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Interactive Bézier Curve Simulator</h1>
+        <p class="subtitle">
+            Real-time physics simulation with particle effects and mathematical visualization
+        </p>
+    </div>
+
+    <div class="dashboard">
+        <!-- CANVAS + STATS -->
+        <div class="canvas-container">
+            <div class="canvas-wrapper">
+                <canvas id="bezierCanvas"></canvas>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="fpsCounter">60</div>
+                    <div class="stat-label">FPS</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="particleCount">0</div>
+                    <div class="stat-label">Particles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="curveLength">0</div>
+                    <div class="stat-label">Curve Length</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="energy">0</div>
+                    <div class="stat-label">System Energy</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <!-- PHYSICS CONTROLS -->
+            <div class="card">
+                <h3>📊 Physics Controls</h3>
+
+                <div class="control-group">
+                    <label>Spring Stiffness: <span id="stiffnessValue">0.1</span></label>
+                    <input type="range" id="stiffnessSlider" min="0.01" max="0.5" step="0.01" value="0.1">
+                </div>
+
+                <div class="control-group">
+                    <label>Damping: <span id="dampingValue">0.95</span></label>
+                    <input type="range" id="dampingSlider" min="0.9" max="0.99" step="0.01" value="0.95">
+                </div>
+
+                <div class="control-group">
+                    <label>Wind Force: <span id="windValue">0</span></label>
+                    <input type="range" id="windSlider" min="-1" max="1" step="0.1" value="0">
+                </div>
+
+                <div class="control-group">
+                    <label>Gravity: <span id="gravityValue">0</span></label>
+                    <input type="range" id="gravitySlider" min="0" max="2" step="0.1" value="0">
+                </div>
+            </div>
+
+            <!-- VISUAL EFFECTS -->
+            <div class="card">
+                <h3>✨ Visual Effects</h3>
+
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="particlesToggle" checked>
+                        Particle System
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="trailToggle" checked>
+                        Motion Trail
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="glowToggle" checked>
+                        Glow Effect
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="mathToggle">
+                        Show Math Info
+                    </label>
+                </div>
+            </div>
+
+            <!-- INTERACTION MODES -->
+            <div class="card">
+                <h3>🎮 Interaction Modes</h3>
+
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="oscillateToggle">
+                        Auto Oscillate
+                    </label>
+                </div>
+
+                <div class="buttons">
+                    <button id="resetBtn" class="btn">🔄 Reset</button>
+                    <button id="randomBtn" class="btn">🎲 Randomize</button>
+                    <button id="snapshotBtn" class="btn">📸 Snapshot</button>
+                </div>
+            </div>
+
+            <!-- MATH INFO -->
+            <div class="card math-info">
+                <h3>📐 Mathematical Properties</h3>
+                <div class="formula">
+                    <p>
+                        <strong>
+                            B(t) = (1−t)³P₀ + 3(1−t)²tP₁ + 3(1−t)t²P₂ + t³P₃
+                        </strong>
+                    </p>
+                    <p>Current t: <span id="tValue">0.5</span></p>
+                    <p>Selected Point: <span id="selectedPoint">None</span></p>
+                    <p>Curvature: <span id="curvatureValue">0.0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            Created for Flam Software Developer Intern Assignment | Bézier Curve with Physics Simulation
+        </p>
+        <p>
+            Drag control points to interact • Toggle effects for performance
+        </p>
+    </div>
+</div>
+
+<script src="bezier.js"></script>
+</body>
+</html>
