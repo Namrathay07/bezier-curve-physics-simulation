@@ -13,7 +13,7 @@ This project implements an interactive cubic Bézier curve that behaves like a s
 5. **60+ FPS Performance** - Optimized canvas rendering using `requestAnimationFrame()`
 6. **Control Points Behavior** - P₀ & P₃ fixed, P₁ & P₂ dynamic with physics
 7. **Real-time Rendering** - Smooth animation with immediate visual feedback
-8. 
+   
 ### **Advanced Features Added**
 8. **Particle System** - Animated particles along the curve with color variations and life decay
 9. **Glow & Visual Effects** - Gradient curve coloring, outer glow, shadow effects, and glassmorphism UI
@@ -114,3 +114,4 @@ Where:
 - Object-oriented design with clear separation of concerns
 - Configurable parameters for easy experimentation
 - Clean, commented code following best practices
+
